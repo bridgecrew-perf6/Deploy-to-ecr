@@ -1,0 +1,14 @@
+on: [push]
+
+jobs:
+  my-job:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: run the action
+      id: hello
+      uses: ./
+      with:
+        myInput: 'Ilya'
+
