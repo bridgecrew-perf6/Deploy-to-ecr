@@ -10,12 +10,27 @@ on:
 jobs:
   my-job:
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v2
-    - name: run the action
-      id: hello
-      uses: ./
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Deploy container image to AWS ECR
+      uses: aws-actions/configuration-aws-credentials@v1
       with:
-        myInput: 'Ilya'
+        access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws_account_id: ${{ secrets.AWS_ACCOUNT_ID }}  
+        region: us-east-1
+    - name: Login to ECR
+      id: login-ectr
+      uses: aws-actions/ecr-login@v1
+    - name: Build, Tag, and push the Image to ECR
+      id: build-image
+      env:
+        ECR_REGISTRY: ${{steps.login-ecr.outputs.registry}}
+        ECR_REPOSITORY: ilya_test
+      run: |
+       docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+       docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+        
+     
 
