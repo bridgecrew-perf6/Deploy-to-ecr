@@ -1,4 +1,0 @@
-from requests import get
-
-myip = get('https://l2.io/ip').text
-print 'My IP address is: ', myip
