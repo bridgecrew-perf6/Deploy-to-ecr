@@ -6,5 +6,4 @@ COPY test.py ./
 RUN chmod +x ./test.py
 ENTRYPOINT ["python3"]
 CMD ["./test.py"]
-<<<<<<< HEAD
 EXPOSE 8080 80
