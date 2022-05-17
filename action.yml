@@ -1,0 +1,6 @@
+name: 'my first container action'
+description: 'A cloud guru'
+author: 'Ilya Rahmilevich'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
