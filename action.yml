@@ -1,6 +1,11 @@
 name: 'my first container action'
 description: 'A cloud guru'
 author: 'Ilya Rahmilevich'
+inputs:
+  myInput:
+    description: 'greeting to use'
+    required: true
+    default: 'Awesome Guru'
 runs:
   using: 'docker'
   image: 'Dockerfile'
