@@ -8,6 +8,3 @@ ENTRYPOINT ["python3"]
 CMD ["./test.py"]
 <<<<<<< HEAD
 EXPOSE 8080 80
-=======
-EXPOSE 8080 80
->>>>>>> 5e19df552b42f55d44e49935dcc90486790f2af5
