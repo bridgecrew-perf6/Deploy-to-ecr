@@ -16,9 +16,12 @@ CURRENT_VERSION=`git describe --abbrev=0 --tags 2>/dev/null`
 
 if [[ $CURRENT_VERSION == '' ]]
 then
-  CURRENT_VERSION='v0.0.1'
+  CURRENT_VERSION='v0.1.0'
 fi
 echo "Current Version: $CURRENT_VERSION"
+
+# replace . with space so can split into an array
+CURRENT_VERSION_PARTS=(${CURRENT_VERSION//./ })
 
 # replace . with space so can split into an array
 CURRENT_VERSION_PARTS=(${CURRENT_VERSION})
