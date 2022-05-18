@@ -12,6 +12,7 @@ jobs:
     name: Build and Push to ECR
     runs-on: ubuntu-latest
     steps:
+      - name: Check out code
       - uses: actions/checkout@v2 
       - name: Autoincrement a new patch version
         run: |
@@ -23,8 +24,7 @@ jobs:
           value: ${{ env.NEW_PATCH_VERSION }}
           repository: ${{ github.repository }}
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
-          
-      - uses: actions/checkout@v2                   
+                          
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
