@@ -12,16 +12,18 @@ jobs:
     name: Build and Push to ECR
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2      
-      - uses: actions/setup-node@v1
+      - name: Autoincrement a new patch version
+        run: |
+          echo "NEW_PATCH_VERSION=$((${{ env.PATCH_VERSION }}+1))" >> $GITHUB_ENV
+      - name: Update patch version
+        uses: hmanzur/actions-set-secret@v2.0.0
         with:
-          node-version: '12'
-      - name: Version Bumper     
-        uses: michmich112/version-bumper@v1.0.1
-        with:
-          options-file: "./.github/workflows/options.json"
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          name: 'PATCH_VERSION'
+          value: ${{ env.NEW_PATCH_VERSION }}
+          repository: ${{ github.repository }}
+          token: ${{ secrets.REPO_ACCESS_TOKEN }}
           
+      - uses: actions/checkout@v2                   
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
