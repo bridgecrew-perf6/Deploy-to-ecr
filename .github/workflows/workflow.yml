@@ -25,10 +25,10 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
     - name: Get next version
-      uses: reecetech/version-increment@0.1
+      uses: reecetech/version-increment@2022.5.1
       id: version
       with:
-       scheme: calver
+       scheme: semver
        increment: patch
     - name: Build image
       uses: docker/build-push-action@v2
