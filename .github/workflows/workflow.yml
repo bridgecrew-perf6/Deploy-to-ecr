@@ -24,9 +24,9 @@ jobs:
       uses: aws-actions/amazon-ecr-login@v1
       
     - name: Push changes
-      uses: ad-m/github-push-action@master
+      uses: actions/labeler@v2
       with:
-       github_token: ${{ secrets.Key}}
+       github_token: ${{ secrets.GITHUB_TOKEN }}
        
     - name: Automatic Tagging of Releases
       id: increment-git-tag
