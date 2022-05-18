@@ -1,9 +1,6 @@
 on:
-  workflow_dispatch:
-    inputs:
-      test-run:
-        description: 'Description'
-        required: true
+  push:
+    branches: [ main ]
 jobs:
   build-and-push:
     name: Build and Push to ECR
