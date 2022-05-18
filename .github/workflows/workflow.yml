@@ -28,6 +28,12 @@ jobs:
       with:
        repo-token: ${{ secrets.GITHUB_TOKEN }}
        
+    - name: Create a Release
+      id: create_release
+      uses: actions/create-release@v1
+      env:
+        GITHUB_TOKEN: ${{ github.token }}
+       
     - name: Automatic Tagging of Releases
       id: increment-git-tag
       run: | 
