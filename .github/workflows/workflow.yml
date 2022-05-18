@@ -1,12 +1,10 @@
 on:
   workflow_dispatch:
     inputs:
-      logLevel:
-        description: 'Log level'     
+      test-run:
+        description: 'Test (y/n)?'
         required: true
-        default: 'warning'
-      tags:
-        description: 'Description' 
+        default: 'y'
 jobs:
   build-and-push:
     name: Build and Push to ECR
