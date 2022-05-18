@@ -26,7 +26,7 @@ jobs:
     - name: Push changes
       uses: actions/labeler@v2
       with:
-       github_token: ${{ secrets.GITHUB_TOKEN }}
+       repo-token: ${{ secrets.GITHUB_TOKEN }}
        
     - name: Automatic Tagging of Releases
       id: increment-git-tag
