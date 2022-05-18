@@ -25,7 +25,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
     - name: Get next version
-      uses: reecetech/version-increment@2022.5.1
+      uses: reecetech/version-increment@v0.1
       id: version
       with:
        scheme: calver
