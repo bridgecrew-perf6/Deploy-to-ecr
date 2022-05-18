@@ -2,16 +2,16 @@ on:
   workflow_dispatch:
     inputs:
       test-run:
-        description: 'Test (y/n)?'
+        description: 'Description'
         required: true
-        default: 'y'
 jobs:
   build-and-push:
     name: Build and Push to ECR
     runs-on: ubuntu-latest
     steps:
-      - name: Check out code
-      - uses: actions/checkout@v2 
+      - name: Checkout
+        uses: actions/checkout@v2 
+        
       - name: Autoincrement a new patch version
         run: |
           echo "NEW_PATCH_VERSION=$((${{ env.PATCH_VERSION }}+1))" >> $GITHUB_ENV
