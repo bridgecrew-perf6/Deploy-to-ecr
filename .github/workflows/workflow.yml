@@ -24,9 +24,16 @@ jobs:
       uses: aws-actions/amazon-ecr-login@v1
 
     - name: Automatic Tagging of Releases
+
       id: increment-git-tag
-      run: |
-        github_token: ${{ secrets.Key }}
+    - run: |
+        git config user.name github-actions[bot]
+          git config user.email github-actions[bot]@users.noreply.github.com
+          npm version patch -m "[RELEASE] %s"
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+       github_token: ${{ secrets.Key}} 
         bash ./build/git_update.sh -v major
     - name: Build, Tag, and Push the Image to Amazon ECR
       id: build-image
