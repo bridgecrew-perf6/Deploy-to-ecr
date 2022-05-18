@@ -35,7 +35,6 @@ jobs:
       with:
         push: false
         tags: "example/application:${{ steps.version.outputs.version }}"
-        context: .
         
     - name: Login to Amazon ECR
       id: login-ecr
