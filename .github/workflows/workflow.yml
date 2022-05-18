@@ -12,6 +12,7 @@ jobs:
     name: Build and Push to ECR
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2 
       - name: Autoincrement a new patch version
         run: |
           echo "NEW_PATCH_VERSION=$((${{ env.PATCH_VERSION }}+1))" >> $GITHUB_ENV
