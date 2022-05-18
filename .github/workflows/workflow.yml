@@ -28,7 +28,7 @@ jobs:
       uses: reecetech/version-increment@2022.5.1
       id: version
       with:
-       scheme: semver
+       scheme: calver
        increment: patch
     - name: Build image
       uses: docker/build-push-action@v2
