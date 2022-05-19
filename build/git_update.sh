@@ -16,4 +16,5 @@ echo "New Tag: $NEW_TAG"
 
 git tag $NEW_TAG
 git push origin --tags
+echo ::set-output name=git-tag::$NEW_TAG
 exit 0
