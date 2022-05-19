@@ -15,6 +15,5 @@ $NEW_TAG = $(echo CURRENT_VERSION | awk -F. -v OFS=. 'NF==1{print ++$NF}; NF>1{i
 echo "New Tag: $NEW_TAG"
 
 git tag $NEW_TAG
-git push --tags
-git push
+git push origin --tags
 exit 0
