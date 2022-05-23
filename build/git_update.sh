@@ -28,13 +28,13 @@ VNUM1=${CURRENT_VERSION_PARTS[0]}
 VNUM2=${CURRENT_VERSION_PARTS[1]}
 VNUM3=${CURRENT_VERSION_PARTS[2]}
 
-if [[ $VERSION == 'major' ]]
+if [[ $VERSION == 'Major' ]]
 then
   VNUM1=v$((VNUM1+1))
-elif [[ $VERSION == 'minor' ]]
+elif [[ $VERSION == 'Minor' ]]
 then
   VNUM2=$((VNUM2+1))
-elif [[ $VERSION == 'patch' ]]
+elif [[ $VERSION == 'Patch' ]]
 then
   VNUM3=$((VNUM3+1))
 else
