@@ -1,9 +1,13 @@
 on:
   workflow_dispatch:
     inputs:
-      test-run:
-        description: 'Description'
-        required: true
+      choice:
+        type: choice
+        description: choice version
+        options:
+        - major
+        - minor
+        - patch
         
 permissions:
   contents: write
@@ -31,7 +35,7 @@ jobs:
     - name: Automatic Tagging of Releases
       id: increment-git-tag
       run: | 
-          bash ./build/git_update.sh
+          bash ./build/git_update.sh -v ${{ github.event.inputs.choice }}
         
     - name: Build, Tag, and Push the Image to Amazon ECR
       id: build-image
