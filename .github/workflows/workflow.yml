@@ -5,9 +5,9 @@ on:
         type: choice
         description: choice version
         options:
-        - major
-        - minor
-        - patch
+        - Major
+        - Minor
+        - Patch
         
 permissions:
   contents: write
